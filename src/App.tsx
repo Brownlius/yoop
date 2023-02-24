@@ -1,7 +1,5 @@
 import styles from './App.module.scss'
-import { Swiper, SwiperSlide } from 'swiper/react';
-
-<script async src="//www.instagram.com/embed.js"></script>
+import { InstaFeed } from './components/instaFeed';
 
 export default function App() {
   return (
@@ -35,14 +33,19 @@ export default function App() {
             <img src={require("./instagram.png")} alt="Insta logo" />
           </div>
 
-          <div className={styles.fundo__box__container_titulo}>
-            <h3>Social</h3>
-            <h4>Instagram</h4>
+          <div className={styles.fundo__box__media}>
+            <div className={styles.fundo__box__media__infos}>
+              <h3>Social</h3>
+              <h4>Instagram</h4>
+            </div>
+            <div className={styles.fundo__box__media__feed}>
+              < InstaFeed />
+            </div>
           </div>
         </div>
       </div>
     </div >
-    
+
   );
 }
 
