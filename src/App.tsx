@@ -34,10 +34,7 @@ export default function App() {
           </div>
 
           <div className={styles.fundo__box__media}>
-            <div className={styles.fundo__box__media__infos}>
-              <h3>Social</h3>
-              <h4>Instagram</h4>
-            </div>
+            
             <div className={styles.fundo__box__media__feed}>
               < InstaFeed />
             </div>

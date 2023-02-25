@@ -3,14 +3,13 @@
     justify-content: flex-start;
     flex-direction: row;
     align-items: center;
-    gap: 0.5rem;
+    gap: 1rem;
     padding: 0 1rem;
-    margin: 1rem;
-    width: 95%;
-    overflow-x: scroll;
+    margin: 1rem 0;
+    overflow-x:scroll;
 
     &__link {
-        margin: 3px 1px;
+        
         min-width: 30%;
 
         :hover {

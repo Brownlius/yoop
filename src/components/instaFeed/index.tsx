@@ -30,7 +30,8 @@ export function InstaFeed() {
         <section className={styles.container_feed}>
             {feedList.map(item => (
                 <a className={styles.container_feed__link} key={item.id} href={item.permalink} target="_blank" rel="noreferrer">
-                    {item.media_type === "IMAGE" || "CAROUSEL_ALBUM"? <img className={styles.container_feed__link__img} src={item.media_url} alt="Instagram media" />
+                    {item.media_type === "IMAGE" || "CAROUSEL_ALBUM"? 
+                    <img className={styles.container_feed__link__img} src={item.media_url} alt="Instagram media" />
                         :
                         <video
                             className={styles.container_feed__link__video}

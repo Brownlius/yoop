@@ -8,3 +8,23 @@ body {
 }
 /* Importando fonte Montserrat ExtraLight 200 Italic do Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200&display=swap");
+
+/* Works on Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: aliceblue;
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  height: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background: none;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: aliceblue;
+  border-radius: 15px;
+}
