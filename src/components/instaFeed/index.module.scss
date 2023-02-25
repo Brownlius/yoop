@@ -1,16 +1,21 @@
 .container_feed {
     display: flex;
+    width: 95%;
     justify-content: flex-start;
     flex-direction: row;
     align-items: center;
     gap: 1rem;
-    padding: 0 1rem;
+    padding: 0.8rem;
     margin: 1rem 0;
-    overflow-x:scroll;
+    overflow-x: scroll;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    background-color: #1f2b12;
+    box-shadow: inset 0px 0px 15px #101709;
 
     &__link {
         
-        min-width: 30%;
+        min-width: 40%;
 
         :hover {
             filter: brightness(1.1);

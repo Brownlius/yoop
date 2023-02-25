@@ -32,13 +32,8 @@ export default function App() {
           <div className={styles.fundo__box__container_icone}>
             <img src={require("./instagram.png")} alt="Insta logo" />
           </div>
-
-          <div className={styles.fundo__box__media}>
-            
-            <div className={styles.fundo__box__media__feed}>
               < InstaFeed />
-            </div>
-          </div>
+    
         </div>
       </div>
     </div >
