@@ -18,6 +18,7 @@ body {
 /* Works on Chrome, Edge, and Safari */
 *::-webkit-scrollbar {
   height: 6px;
+  padding:13px;
 }
 
 *::-webkit-scrollbar-track {
