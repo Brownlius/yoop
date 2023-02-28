@@ -31,22 +31,24 @@ export function InstaFeed() {
 
 
     return (
-        <section className={styles.container_feed}>
-            {feedList.filter((item, idx) => idx < 6).map(item => (
-                <button
-                    className={styles.container_feed__link} key={item.id}
-                    onClick={() => SetOpenModal(true)}
-                >
-                    {item.media_type === "IMAGE" || "CAROUSEL_ALBUM" ?
-                        <img className={styles.container_feed__link__img} src={item.media_url} alt="Instagram media" />
-                        :
-                        <video
-                            className={styles.container_feed__link__video}
-                            controls>
-                            <source src={item.media_url} />
-                        </video>}
-                </button>
-            ))}
-            <ModalFeed />
-        </section>)
+        <>
+            <section className={styles.container_feed}>
+                {feedList.filter((item, idx) => idx < 6).map(item => (
+                    <button
+                        className={styles.container_feed__link} key={item.id}
+                        onClick={() => SetOpenModal(true)}
+                    >
+                        {item.media_type === "IMAGE" || "CAROUSEL_ALBUM" ?
+                            <img className={styles.container_feed__link__img} src={item.media_url} alt="Instagram media" />
+                            :
+                            <video
+                                className={styles.container_feed__link__video}
+                                controls>
+                                <source src={item.media_url} />
+                            </video>}
+                    </button>
+                ))}
+            </section>
+        </>
+    )
 }

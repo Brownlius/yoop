@@ -4,11 +4,19 @@ import { InstaFeed } from './components/instaFeed';
 export default function App() {
   return (
     <>
+    <div className={styles.modal_container}>
+        <div className={styles.modal_container__background}>
+            <div className={styles.modal_container__background__modal}>
+                <h2>I'm a Modal</h2>
+                <p>Hear me roar.</p>
+            </div>
+        </div>
+    </div>
       <div className={styles.principal}>
 
         <div className={styles.header}>
           <div className={styles.header__logo}>
-            <img src={require("./logo.png")} alt="Logo YooP" />
+            <img src={require("./favicon.png")} alt="Logo YooP" />
           </div>
           <div className={styles.header__perfil}>
             <div className={styles.header__perfil__foto}>
