@@ -13,6 +13,8 @@
     box-shadow: inset 0px 0px 15px #101709;
 
     &__link {
+        background-color: inherit;
+        border: none;
         display: flex;
         max-width: 18%;
         flex: 1;

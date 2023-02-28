@@ -1,50 +1,23 @@
-.whatsapp {
-  display: inline-block;
-  width: 5vw;
-  position: fixed;
-  bottom: 8px;
-  right: 8px;
-  z-index: 3;
-  background-color: #314c15;
-  border-radius: 50%;
-  aspect-ratio: 1/1;
+  @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&family=Montserrat:wght@200&family=Roboto:ital,wght@1,300&display=swap');
 
-  a {}
-
-  img {
-    width: 100%;
-    transform: scale(1.2);
-  }
-}
-
-.whatsapp img:hover {
-  transform: scale(1.25);
-}
-
-.principal {
-  display: flex;
-  z-index: 2;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  width: 100vw;
-  min-height: 100vh;
-  background-color: hsl(89, 41%, 12%);
-  margin: 0 auto;
-
-  .header {
+  .principal {
     display: flex;
-    padding: 0;
-    width: 95%;
-    min-height: 35vh;
+    z-index: 2;
     flex-direction: column;
     justify-content: flex-start;
+    align-items: center;
+    width: 100vw;
+    min-height: 100vh;
+    background-color: hsl(89, 41%, 12%);
+    margin: 0 auto;
 
-    &__perfil {
-      display: flex;
-      flex-direction: row;
-      padding: 2px 0;
-      justify-content: space-between;
+    .header {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      min-height: 20vh;
+      width: 85%;
+
       border-left: 2px solid #FF7700;
       border-right: 2px solid #FF7700;
       border-bottom: 2px solid #FF7700;
@@ -52,51 +25,52 @@
       border-bottom-right-radius: 10px;
       box-shadow: -4px 3px 15px #101709;
 
+
       &__logo {
+        align-items: center;
         padding: 4px;
         text-align: center;
-        color: #FF7700;
         height: fit-content;
-        width: 10%;
+        padding: 2rem;
+        width: 30%;
 
-      }
-
-      &__redes_sociais {
-        display: flex;
-        align-items: center;
-        justify-content: start;
-        flex-direction: column;
-        width: 10%;
-
-        &__logos {
-          margin: 10px;
-          width: 33%;
+        img {
+          width: 100%;
         }
 
       }
 
-      &__infos {
+
+      &__perfil {
         display: flex;
         justify-content: center;
         flex-direction: column;
-        width: 33%;
-        padding: 6px;
 
-        img {
+        &__foto {
+          display: flex;
+          justify-content: center;
 
-          margin: 0 auto;
-          width: 60%;
+          img {
+
+            padding: 1rem;
+            box-sizing: border-box;
+            aspect-ratio: 1.618;
+            margin: 0 auto;
+            max-width: 100%;
+            background-size: cover;
+          }
         }
 
         &__nomes {
           color: aliceblue;
-          margin: 0;
+          padding: 0.5rem;
           text-align: center;
 
           h2 {
+            font-family: 'Josefin Sans', sans-serif;
             white-space: nowrap;
-            font-size: 1.75rem;
-            margin: 5px;
+            font-size: 2.25rem;
+            margin: 0.5rem 0;
           }
 
           p {
@@ -106,84 +80,111 @@
           }
         }
       }
+
+      &__redes_sociais {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: end;
+        padding: 2rem;
+
+        &__link {
+          width: 15%;
+          min-width: 35px;
+
+          img {
+
+            transition: 0.15s ease-in-out all;
+            margin: auto;
+            width: 100%;
+          }
+
+          img:hover {
+            transform: scale(1.07) rotate(7deg);
+            transition: 0.3s ease-in-out all;
+
+          }
+        }
+
+
+      }
     }
 
-    &__opcoes {
-      color: #f0f8ff;
-      min-width: 45%;
-      margin: 0 auto;
+    .opcoes {
       display: flex;
       flex-direction: row;
       align-items: center;
       justify-content: space-around;
+      color: #f0f8ff;
+      min-width: 45%;
+      margin: 0 auto;
     }
-  }
 
-  .fundo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    padding: 10px 0;
-    margin: 0 auto;
-    background-color: hsl(89, 41%, 12%);
-    border-radius: 1rem;
-
-    &__box {
-      box-shadow: 0px 0px 15px #101709;
+    .fundo {
       display: flex;
-      width: 95%;
-      max-height: fit-content;
-      flex-direction: row;
+      flex-direction: column;
       align-items: center;
+      width: 75%;
+      padding: 10px 0;
+      margin: 0 auto;
+      background-color: hsl(89, 41%, 12%);
       border-radius: 1rem;
-      background-color: #FF7700;
 
-      &__container_icone {
-        width: 8%;
+      &__box {
+        box-shadow: 0px 0px 15px #101709;
         display: flex;
-        justify-content: flex-start;
-        margin: 10px;
-        border-radius: 1rem;
-        background-color: #101709;
-        border-radius: 50%;
-
-        img {
-          width: 100%;
-          transform: scale(1.01);
-
-        }
-      }
-
-      &__media {
-        color: #f0f8ff;
         width: 95%;
-        display: flex;
+        max-height: fit-content;
         flex-direction: row;
-        border-top-left-radius: 15px;
-        border-bottom-left-radius: 15px;
-        background-color: #1f2b12;
-        box-shadow: inset 0px 0px 15px #101709;
-        margin: 10px 0;
+        align-items: center;
+        border-radius: 1rem;
+        background-color: #FF7700;
 
-        &__infos {
-          h3 {
-            font-size: 1rem;
-          }
+        &__container_icone {
+          width: 8%;
+          display: flex;
+          justify-content: flex-start;
+          margin: 10px;
+          border-radius: 1rem;
+          background-color: #101709;
+          border-radius: 50%;
 
-          h4 {
-            font-size: 1.5rem;
+          img {
+            width: 100%;
+            transform: scale(1.01);
+
           }
         }
 
-        &__feed {
+        &__media {
+          color: #f0f8ff;
+          width: 95%;
           display: flex;
-          justify-content: center;
-          width: 100%;
+          flex-direction: row;
+          border-top-left-radius: 15px;
+          border-bottom-left-radius: 15px;
+          background-color: #1f2b12;
+          box-shadow: inset 0px 0px 15px #101709;
+          margin: 10px 0;
+
+          &__infos {
+            h3 {
+              font-size: 1rem;
+            }
+
+            h4 {
+              font-size: 1.5rem;
+            }
+          }
+
+          &__feed {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+          }
+
         }
 
       }
-
     }
   }
-}
