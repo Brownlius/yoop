@@ -14,7 +14,7 @@ export default function App() {
   return (
     <>
       {
-        modalOpen === false &&
+        modalOpen === true &&
         <div className={styles.modal_container} >
           <div className={styles.modal_container__background}>
             <div className={styles.modal_container__background__post}>
