@@ -9,11 +9,9 @@ interface IFeedItem {
     permalink: string;
 
 }
-
-export function InstaFeed() {
+export function InstaFeed({ openModal }: any) {
 
     const [feedList, setFeedList] = useState<IFeedItem[]>([]);
-    const [openModal, SetOpenModal] = useState(false);
 
     async function getInstaFeed() {
         const token = process.env.REACT_APP_INSTA_TOKEN;
@@ -28,15 +26,14 @@ export function InstaFeed() {
         getInstaFeed();
     }, [])
 
-
-
     return (
         <>
             <section className={styles.container_feed}>
                 {feedList.filter((item, idx) => idx < 6).map(item => (
                     <button
-                        className={styles.container_feed__link} key={item.id}
-                        onClick={() => SetOpenModal(true)}
+                        className={styles.container_feed__link}
+                        key={item.id}
+                        onClick={openModal}
                     >
                         {item.media_type === "IMAGE" || "CAROUSEL_ALBUM" ?
                             <img className={styles.container_feed__link__img} src={item.media_url} alt="Instagram media" />

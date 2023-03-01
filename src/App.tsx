@@ -1,17 +1,44 @@
+import { useState } from 'react';
 import styles from './App.module.scss'
 import { InstaFeed } from './components/instaFeed';
 
 export default function App() {
+  const [modalOpen, setModalOpen] = useState(false);
+
+  function openModal() {
+    setModalOpen(!modalOpen); console.log(!modalOpen)
+  }
+
   return (
     <>
-    <div className={styles.modal_container}>
-        <div className={styles.modal_container__background}>
-            <div className={styles.modal_container__background__modal}>
-                <h2>I'm a Modal</h2>
-                <p>Hear me roar.</p>
+      {
+        modalOpen === false &&
+        <div className={styles.modal_container} >
+          <div className={styles.modal_container__background}>
+            <div className={styles.modal_container__background__post}>
+              <div className={styles.modal_container__background__post__img}>
+                <img src={require("./cachorro.jpg")} alt="Logo YooP" />
+              </div>
+              <div className={styles.modal_container__background__post__infos} >
+                <div className={styles.modal_container__background__post__infos__cabeçalho}>
+
+                  <div>
+                    <img />
+                  </div>
+                  <h3> Agencia.yoop</h3>
+
+                </div>
+                <div className={styles.modal_container__background__post__infos__descrição}>
+
+                </div>
+                <div>
+                  21/07/2001 - 12:45
+                </div>
+              </div>
             </div>
+          </div>
         </div>
-    </div>
+      }
       <div className={styles.principal}>
 
         <div className={styles.header}>
@@ -50,7 +77,7 @@ export default function App() {
             <div className={styles.fundo__box__container_icone}>
               <img src={require("./instagram.png")} alt="Insta logo" />
             </div>
-            < InstaFeed />
+            < InstaFeed openModal={openModal} />
           </div>
         </div>
       </div >
