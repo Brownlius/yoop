@@ -16,7 +16,6 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 100%;
       height: 100%;
       background: rgba(0, 0, 0, .8);
       width: 100vw;
@@ -25,10 +24,11 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-content: center;
-        width: 60%;
-        height: 60%;
-        background-color: #1f2b12;
+        justify-content: flex-start;
+        width: fit-content;
+        gap: 0.5rem;
+        height: 65%;
+        background-color: #101709;
         border-radius: 1rem;
 
 
@@ -36,27 +36,64 @@
           display: flex;
           justify-content: center;
           align-items: center;
-          width: 70%;
-          height: 100%;
+          margin: 0 1.5rem;
+          width: 40vw;
+          border-radius: 1rem;
           background-color: #101709;
           border-radius: 1rem;
 
           img {
-            background-clip: border-box;
-            background-size: auto;
-            aspect-ratio: 1.1/1;
-            width: 100%;
-            height: fit-content;
+
+            background-size: cover;
+            aspect-ratio: 1.218/1;
+            max-width: 100%;
             border-radius: inherit;
           }
 
         }
+
         &__infos {
-          width:max-content;
-          padding: 0 0.5rem;
+          width: 20vw;
+          height: 100%;
+          background-color: #1f2b12;
+          border-radius: inherit;
+          padding: 0.5rem;
           display: flex;
+          flex-direction: column;
           justify-content: flex-start;
-          align-items: center;
+          align-items: start;
+
+          &__cabeçalho {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+
+            &__foto {
+              width: 33%;
+
+              img {
+                width: 100%;
+              }
+
+            }
+
+            button {
+              display: flex;
+              justify-content: flex-start;
+              align-items: center;
+              width: 40%;
+              background-color: #101709;
+              border-radius: 1rem;
+              border: none;
+
+              img {
+                width: 50%;
+              }
+            }
+          }
+          &__descrição{
+          line-height: 1.5rem;
+          }
         }
       }
     }

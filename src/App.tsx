@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { Swiper, SwiperSlide } from "swiper/react";
+
 import styles from './App.module.scss'
 import { InstaFeed } from './components/instaFeed';
 
@@ -16,23 +18,32 @@ export default function App() {
         <div className={styles.modal_container} >
           <div className={styles.modal_container__background}>
             <div className={styles.modal_container__background__post}>
-              <div className={styles.modal_container__background__post__img}>
-                <img src={require("./cachorro.jpg")} alt="Logo YooP" />
-              </div>
+              <Swiper
+                className={styles.modal_container__background__post__img}
+                slidesPerView={1} speed={500} loop={true} css-mode="true"
+              >
+                <SwiperSlide>
+                  <img src={require("./cachorro.jpg")} alt="Logo YooP" />
+                </SwiperSlide>
+                
+              </Swiper>
               <div className={styles.modal_container__background__post__infos} >
                 <div className={styles.modal_container__background__post__infos__cabeçalho}>
-
-                  <div>
-                    <img />
+                  <div className={styles.modal_container__background__post__infos__cabeçalho__foto}>
+                    <img src={require("./logo.png")} alt="Foto perfil" />
                   </div>
-                  <h3> Agencia.yoop</h3>
-
+                  <button>
+                    <img src={require("./instagram.png")} alt="Logo do Instagram" />
+                  </button>
                 </div>
                 <div className={styles.modal_container__background__post__infos__descrição}>
-
+                  <p> Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Quae expedita rerum minus, atque facilis voluptatum vitae earum rem,
+                    magnam libero dolores beatae iste optio dolorum dignissimos nihil ullam corrupti. Doloremque!
+                  </p>
                 </div>
                 <div>
-                  21/07/2001 - 12:45
+                  31 Janeiro
                 </div>
               </div>
             </div>
