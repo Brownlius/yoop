@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&family=Montserrat:wght@200&family=Roboto:ital,wght@1,300&display=swap');
+
+&__post {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: clamp(50%, 700px, 90%);
+    height: (50%, 300px);
+    background-color: #101709;
+    border-radius: 1rem;
+
+    &__container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 60%;
+        max-width: 60%;
+        background-color: #101709;
+
+        &__swiper {
+
+            display: flex;
+            width: 100%;
+            padding: 0 1rem;
+
+            &__slide {
+                -webkit-transform: translateZ(0);
+
+                img {
+                    background-size: cover;
+                    width: 100%;
+                    border-radius: 1rem;
+
+                }
+            }
+
+            &__navPrev,
+            &__navNext {
+                top: 50%;
+                position: absolute;
+                margin: 0 20px;
+                width: 30px;
+                height: 30px;
+                z-index: 1;
+                cursor: pointer;
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: center;
+                transition: 0.5s ease-in-out all
+            }
+
+            box-shadow: inset 0px 0px 0.3rem hsl(0, 0%, 0%);
+
+            &__navPrev:hover,
+            &__navNext:hover {
+                transform: scale(1.05);
+                transition: 0.3s ease-in-out all;
+            }
+
+            &__navPrev {
+                background-color: #101709;
+                border-radius: 50%;
+                background-image: url('./prev.png');
+                left: 0;
+            }
+
+            &__navNext {
+                background-color: #101709;
+                border-radius: 50%;
+                background-image: url('./next.png');
+                right: 0;
+            }
+        }
+    }
+
+    &__infos {
+        min-width: 33%;
+        max-width: 40%;
+        height: 100%;
+        box-shadow: -6px 0px 1rem hsl(106, 100%, 3%);
+        background-color: #1f2b12;
+        border-radius: inherit;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: start;
+
+        &__cabeçalho {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+
+            &__foto {
+                width: 33%;
+
+                img {
+                    width: 100%;
+                }
+
+            }
+
+            button {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                width: 40%;
+                background-color: #101709;
+                border-radius: 1rem;
+                border: none;
+
+                img {
+                    width: 50%;
+                }
+            }
+        }
+
+        &__descrição {
+            line-height: 1.5rem;
+        }
+    }
+}
