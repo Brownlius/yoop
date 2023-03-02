@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from 'swiper';
+import { CSSTransition } from "react-transition-group";
 
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -11,9 +12,11 @@ import { InstaFeed } from './components/instaFeed';
 
 export default function App() {
   const [modalOpen, setModalOpen] = useState(false);
+  const swiperNavPrevRef = useRef(null);
+  const swiperNavNextRef = useRef(null);
 
   function openModal() {
-    setModalOpen(!modalOpen); console.log(!modalOpen)
+    setModalOpen(!modalOpen);
   }
 
   return (
@@ -21,19 +24,21 @@ export default function App() {
       {
         modalOpen === true &&
         <div className={styles.modal_container} >
-          <div className={styles.modal_container__background}>
-            <div className={styles.modal_container__background__post}>
+          <div className={styles.modal_container__background}
+            onClick={openModal}>
+            <div className={styles.modal_container__background__post}
+            >
               <div className={styles.modal_container__background__post__container}>
                 <Swiper
                   className={styles.modal_container__background__post__container__swiper}
+                  modules={[Pagination, Navigation]}
                   slidesPerView={1.05}
-                  speed={500}
-                  loop={true}
-                  navigation
-                  pagination={{ clickable: true }}
-                  scrollbar={{ draggable: true }}
-                  onSwiper={(swiper) => console.log(swiper)}
-                  onSlideChange={() => console.log('slide change')}
+                  speed={400}
+                  pagination={true}
+                  navigation={{
+                    prevEl: swiperNavPrevRef.current,
+                    nextEl: swiperNavNextRef.current,
+                  }}
                 >
                   <SwiperSlide className={styles.modal_container__background__post__container__swiper__slide}>
                     <img alt='' src={require("./cachorro.jpg")} />
@@ -41,6 +46,12 @@ export default function App() {
                   <SwiperSlide className={styles.modal_container__background__post__container__swiper__slide}>
                     <img alt='' src={require("./cachorro.jpg")} />
                   </SwiperSlide>
+
+                  <div className={styles.modal_container__background__post__container__swiper__navPrev}
+                    ref={swiperNavPrevRef}></div>
+                  <div className={styles.modal_container__background__post__container__swiper__navNext}
+                    ref={swiperNavNextRef}></div>
+
                 </Swiper>
               </div>
               <div className={styles.modal_container__background__post__infos} >
@@ -64,7 +75,7 @@ export default function App() {
               </div>
             </div>
           </div>
-        </div>
+        </div >
       }
       <div className={styles.principal}>
 

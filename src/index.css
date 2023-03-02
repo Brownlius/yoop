@@ -18,7 +18,7 @@ body {
 /* Works on Chrome, Edge, and Safari */
 *::-webkit-scrollbar {
   height: 6px;
-  padding:13px;
+  padding: 13px;
 }
 
 *::-webkit-scrollbar-track {
@@ -29,3 +29,8 @@ body {
   background-color: aliceblue;
   border-radius: 15px;
 }
+/* 
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  display: none;
+} */
