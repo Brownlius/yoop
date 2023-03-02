@@ -1,5 +1,10 @@
 import { useState } from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from 'swiper';
+
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 import styles from './App.module.scss'
 import { InstaFeed } from './components/instaFeed';
@@ -18,15 +23,26 @@ export default function App() {
         <div className={styles.modal_container} >
           <div className={styles.modal_container__background}>
             <div className={styles.modal_container__background__post}>
-              <Swiper
-                className={styles.modal_container__background__post__img}
-                slidesPerView={1} speed={500} loop={true} css-mode="true"
-              >
-                <SwiperSlide>
-                  <img src={require("./cachorro.jpg")} alt="Logo YooP" />
-                </SwiperSlide>
-                
-              </Swiper>
+              <div className={styles.modal_container__background__post__container}>
+                <Swiper
+                  className={styles.modal_container__background__post__container__swiper}
+                  slidesPerView={1.05}
+                  speed={500}
+                  loop={true}
+                  navigation
+                  pagination={{ clickable: true }}
+                  scrollbar={{ draggable: true }}
+                  onSwiper={(swiper) => console.log(swiper)}
+                  onSlideChange={() => console.log('slide change')}
+                >
+                  <SwiperSlide className={styles.modal_container__background__post__container__swiper__slide}>
+                    <img alt='' src={require("./cachorro.jpg")} />
+                  </SwiperSlide>
+                  <SwiperSlide className={styles.modal_container__background__post__container__swiper__slide}>
+                    <img alt='' src={require("./cachorro.jpg")} />
+                  </SwiperSlide>
+                </Swiper>
+              </div>
               <div className={styles.modal_container__background__post__infos} >
                 <div className={styles.modal_container__background__post__infos__cabeçalho}>
                   <div className={styles.modal_container__background__post__infos__cabeçalho__foto}>
