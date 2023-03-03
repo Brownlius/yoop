@@ -1,7 +1,10 @@
+import { AnimatePresence } from 'framer-motion';
 import axios from "axios"
 import { useEffect, useState } from "react";
-import ModalFeed from "../Modals/InstaFeed";
+import Modal from "../Modals/InstaFeed";
 import styles from './index.module.scss';
+import { wait } from '@testing-library/user-event/dist/utils';
+
 interface IFeedItem {
     id: string;
     media_type: "IMAGE" | "VIDEO" | "CAROUSEL_ALBUM";
@@ -12,6 +15,10 @@ interface IFeedItem {
 export function InstaFeed({ openModal }: any) {
 
     const [feedList, setFeedList] = useState<IFeedItem[]>([]);
+    const [modalOpen, setModalOpen] = useState(false);
+
+    const close = () => setModalOpen(false);
+    const open = () => setModalOpen(true);
 
     async function getInstaFeed() {
         const token = process.env.REACT_APP_INSTA_TOKEN;
@@ -33,7 +40,7 @@ export function InstaFeed({ openModal }: any) {
                     <button
                         className={styles.container_feed__link}
                         key={item.id}
-                        onClick={openModal}
+                        onClick={() => (modalOpen ? close() : open())}
                     >
                         {item.media_type === "IMAGE" || "CAROUSEL_ALBUM" ?
                             <img className={styles.container_feed__link__img} src={item.media_url} alt="Instagram media" />
@@ -45,6 +52,16 @@ export function InstaFeed({ openModal }: any) {
                             </video>}
                     </button>
                 ))}
+
+                <AnimatePresence
+                    initial={false}
+                    mode="wait"
+                    onExitComplete={() => null}
+                >
+
+                    {modalOpen && <Modal modalOpen={modalOpen} handleClose={close} />}
+                </AnimatePresence>
+
             </section>
         </>
     )

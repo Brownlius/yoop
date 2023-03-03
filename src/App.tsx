@@ -6,24 +6,16 @@ import { Navigation, Pagination } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import '/normalize.css';
+import './normalize.css';
 
 import styles from './App.module.scss'
 import { InstaFeed } from './components/instaFeed';
 
 export default function App() {
-  const [modalOpen, setModalOpen] = useState(false);
-  
-
-  function openModal() {
-    setModalOpen(!modalOpen);
-  }
-
   return (
     <>
-      
-      <div className={styles.principal}>
 
+      <div className={styles.principal}>
         <div className={styles.header}>
           <div className={styles.header__logo}>
             <img src={require("./favicon.png")} alt="Logo YooP" />
@@ -60,7 +52,7 @@ export default function App() {
             <div className={styles.fundo__box__container_icone}>
               <img src={require("./instagram.png")} alt="Insta logo" />
             </div>
-            < InstaFeed openModal={openModal} />
+            < InstaFeed />
           </div>
         </div>
       </div >
