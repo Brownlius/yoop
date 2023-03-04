@@ -1,21 +1,23 @@
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from 'swiper';
 import Background from '../../background/index';
+import { SwiperOptions } from 'swiper';
+
 
 import { motion } from 'framer-motion';
+
 
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import '../../../normalize.css';
-
 import styles from "./index.module.scss"
 
-export default function ModalFeed({ handleClose, text }: any) {
+export default function ModalFeed({ handleClose, caption, timeStamp }: any) {
 
-    const swiperNavPrevRef = useRef(null);
-    const swiperNavNextRef = useRef(null);
+    const navigationPrevRef = useRef<HTMLDivElement>(null);
+    const navigationNextRef = useRef<HTMLDivElement>(null);
 
     const dropIn = {
         hidden: {
@@ -49,10 +51,10 @@ export default function ModalFeed({ handleClose, text }: any) {
                     modules={[Pagination, Navigation]}
                     slidesPerView={1.05}
                     speed={400}
-                    pagination={true}
+                    pagination={{ clickable: true }}
                     navigation={{
-                        prevEl: swiperNavPrevRef.current,
-                        nextEl: swiperNavNextRef.current
+                        prevEl: navigationPrevRef.current,
+                        nextEl: navigationNextRef.current
                     }}
                 >
                     <SwiperSlide className={styles.post__container__swiper__slide}>
@@ -63,9 +65,9 @@ export default function ModalFeed({ handleClose, text }: any) {
                     </SwiperSlide>
 
                     <div className={styles.post__container__swiper__navPrev}
-                        ref={swiperNavPrevRef}></div>
+                        ref={navigationPrevRef} />
                     <div className={styles.post__container__swiper__navNext}
-                        ref={swiperNavNextRef}></div>
+                        ref={navigationNextRef} />
 
                 </Swiper>
 
@@ -80,13 +82,11 @@ export default function ModalFeed({ handleClose, text }: any) {
                         </button>
                     </div>
                     <div className={styles.post__infos__descrição}>
-                        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Quae expedita rerum minus, atque facilis voluptatum vitae earum rem,
-                            magnam libero dolores beatae iste optio dolorum dignissimos nihil ullam corrupti. Doloremque!
+                        <p> {caption}
                         </p>
                     </div>
                     <div className={styles.post__infos__data}>
-                        31 Janeiro
+                        {timeStamp}
                     </div>
                 </div>
             </motion.div>

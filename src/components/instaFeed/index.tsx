@@ -3,13 +3,16 @@ import axios from "axios"
 import { useEffect, useState } from "react";
 import Modal from "../Modals/InstaFeed";
 import styles from './index.module.scss';
-import { wait } from '@testing-library/user-event/dist/utils';
 
 interface IFeedItem {
     id: string;
     media_type: "IMAGE" | "VIDEO" | "CAROUSEL_ALBUM";
     media_url: string;
     permalink: string;
+    caption: string;
+    children: {};
+    timeStamp: string;
+    mediaId: string;
 
 }
 export function InstaFeed({ openModal }: any) {
@@ -22,8 +25,10 @@ export function InstaFeed({ openModal }: any) {
 
     async function getInstaFeed() {
         const token = process.env.REACT_APP_INSTA_TOKEN;
-        const fields = "media_url,media_type,permalink";
-        const url = `https://graph.instagram.com/me/media?access_token=${token}&fields=${fields}`
+        const fields = "media_url,media_type,permalink,caption,timestamp,children";
+        const mediaId = '';
+        const url = `https://graph.instagram.com/me/media?access_token=${token}&fields=${fields}`;
+        const urlChildren = `https://graph.instagram.com/${mediaId}/children?access_token=${token}`;
 
         const { data } = await axios.get(url);
         setFeedList(data.data);
@@ -59,7 +64,11 @@ export function InstaFeed({ openModal }: any) {
                     onExitComplete={() => null}
                 >
 
-                    {modalOpen && <Modal modalOpen={modalOpen} handleClose={close} />}
+                    {modalOpen && <Modal
+                        caption={feedList[0].caption}
+                        timestamp={'s'}
+                        modalOpen={modalOpen}
+                        handleClose={close} />}
                 </AnimatePresence>
 
             </section>

@@ -1,7 +1,6 @@
 import { useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from 'swiper';
-// import { CSSTransition } from "react-transition-group";
 
 import 'swiper/css';
 import 'swiper/css/navigation';

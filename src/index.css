@@ -32,8 +32,6 @@ body {
   background-color: aliceblue;
   border-radius: 15px;
 }
-/* 
-.swiper-button-next::after,
-.swiper-button-prev::after {
-  display: none;
-} */
+.swiper-pagination-bullet-active {
+  background-color: #FF7700 !important;
+}
