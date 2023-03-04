@@ -43,9 +43,9 @@ export default function App() {
 
         </div>
         <div className={styles.opcoes}>
-          <h3>Portifólio</h3>
+          <a href=''><h3>Portifólio</h3></a>
           <p>|</p>
-          <h3>Sobre</h3>
+          <a href='' ><h3>Sobre</h3></a>
         </div>
         <div className={styles.fundo}>
           <div className={styles.fundo__box}>

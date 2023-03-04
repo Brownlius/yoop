@@ -25,7 +25,7 @@ export default function ModalFeed({ handleClose, text }: any) {
             x: "0",
             opacity: 1,
             transition: {
-                duration: 0.1,
+                duration: 0.2,
                 damping: 100,
                 stiffnes: 500,
             }
@@ -85,9 +85,10 @@ export default function ModalFeed({ handleClose, text }: any) {
                             magnam libero dolores beatae iste optio dolorum dignissimos nihil ullam corrupti. Doloremque!
                         </p>
                     </div>
-                    <div>
+                    <div className={styles.post__infos__data}>
                         31 Janeiro
-                    </div></div>
+                    </div>
+                </div>
             </motion.div>
         </Background>
     )
