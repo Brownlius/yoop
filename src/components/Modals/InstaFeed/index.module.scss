@@ -5,20 +5,19 @@
     flex-direction: row;
     justify-content: flex-start;
     width: clamp(45vw, 65vw, 90vw);
-    height: (40vw, 55vw, 85vw);
+    max-height: 90%;
     background-color: #16200b;
     border-radius: 1rem;
 
     &__container {
         display: flex;
         flex-direction: row;
-        width: 55%;
         border-radius: 1rem;
 
         &__swiper {
 
             display: flex;
-            width: 100%;
+            width: 75%;
             padding: 1.5rem 1rem;
             margin: auto 0;
 
@@ -78,7 +77,6 @@
         flex-direction: column;
         width: 45%;
         padding: auto;
-        height: 100%;
         box-shadow: -6px 0px 1rem hsl(106, 100%, 3%);
         background-color: #1f2b12;
         border-radius: inherit;
@@ -88,7 +86,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0.5rem;
+            padding: 0 0.5rem;
 
             &__foto {
                 width: 33%;
@@ -129,8 +127,8 @@
 
         &__descrição {
             color: aliceblue;
-            font-size: 1.25rem;
-            line-height: 1.75rem;
+            font-size: 0.85rem;
+            line-height: 1.25rem;
             border-bottom: 2px solid #FF7700;
 
         }
